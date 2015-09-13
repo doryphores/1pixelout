@@ -1,9 +1,5 @@
 ---
 title: Hello World
-categories:
-- HAHAHA
-tags:
-- Yo
 ---
 
 # An exhibit of Markdown
