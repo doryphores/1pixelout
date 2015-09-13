@@ -1,0 +1,39 @@
+<article itemscope itemprop="blogPost">
+  <%- partial('post/date', {class_name: 'article-date'}) %>
+  <%- partial('post/category') %>
+  <%- partial('post/gallery') %>
+  <% if (post.link || post.title){ %>
+    <header>
+      <%- partial('post/title', {class_name: 'article-title'}) %>
+    </header>
+  <% } %>
+  <div itemprop="articleBody">
+    <% if (post.excerpt && index){ %>
+      <%- post.excerpt %>
+      <% if (theme.excerpt_link){ %>
+        <p>
+          <a href="<%- url_for(post.path) %>#more"><%= theme.excerpt_link %></a>
+        </p>
+      <% } %>
+    <% } else { %>
+      <%- post.content %>
+    <% } %>
+  </div>
+  <footer>
+    <% if (post.comments && config.disqus_shortname){ %>
+      <a href="<%- post.permalink %>#disqus_thread">Comments</a>
+    <% } %>
+    <%- partial('post/tag') %>
+  </footer>
+  <% if (!index){ %>
+    <%- partial('post/nav') %>
+  <% } %>
+</article>
+
+<% if (!index && post.comments && config.disqus_shortname){ %>
+<section>
+  <div>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+<% } %>

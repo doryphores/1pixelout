@@ -1,0 +1,5 @@
+<aside<% if (theme.sidebar === 'bottom'){ %><% } %>>
+  <% theme.widgets.forEach(function(widget){ %>
+    <%- partial('_widget/' + widget) %>
+  <% }) %>
+</aside>
