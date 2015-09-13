@@ -65,6 +65,11 @@ pagination_dir: page
 ## Themes: http://hexo.io/themes/
 theme: 1pixelout
 
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
