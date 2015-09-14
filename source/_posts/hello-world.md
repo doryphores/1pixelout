@@ -21,9 +21,6 @@ Paragraphs must be separated by a blank line. Basic formatting of *italics* and 
 1. Item 1
 2. A second item
 3. Number 3
-4. Ⅳ
-
-*Note: the fourth item uses the Unicode character for [Roman numeral four][2].*
 
 ### Unordered list
 
@@ -34,9 +31,42 @@ Paragraphs must be separated by a blank line. Basic formatting of *italics* and 
 
 ## Paragraph modifiers
 
-### Code block
+### Simple code block
 
-    Code blocks are very useful for developers and other people who look at code or other things that are written in plain text. As you can see, it uses a fixed-width font.
+    $ npm install package
+
+### Fenced code block with syntax highlighting
+
+```javascript
+export default function initWindow() {
+  const win = remote.getCurrentWindow()
+  const dims = LocalStorageManager.get("windowDimensions")
+
+  const saveDims = _.debounce(() => {
+    LocalStorageManager.set("windowDimensions", {
+      bounds    : win.getBounds(),
+      maximized : win.isMaximized()
+    })
+  }, 100);
+
+  ["move", "resize"].forEach((event) => {
+    win.removeAllListeners(event)
+    win.on(event, saveDims)
+  })
+
+  if (dims) {
+    win.setBounds(dims.bounds)
+    win.show()
+
+    // Maximizing on OSX is a bit odd
+    if (process.platform != "darwin" && dims.maximized) {
+      win.maximize()
+    }
+  } else {
+    win.show()
+  }
+}
+```
 
 You can also make `inline code` to add code into other things.
 
