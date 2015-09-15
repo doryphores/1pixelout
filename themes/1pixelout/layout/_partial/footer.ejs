@@ -1,7 +1,8 @@
-<footer>
+<footer class="site-footer">
   <% if (theme.sidebar === 'bottom'){ %>
     <%- partial('_partial/sidebar') %>
   <% } %>
   &copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %><br>
-  Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+  Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> - 
+  Theme inspired by <a href="http://ghost.jollygoodthemes.com/ghostwriter/" target="_blank">Ghostwriter</a>
 </footer>
