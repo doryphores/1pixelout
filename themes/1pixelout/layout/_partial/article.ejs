@@ -2,9 +2,11 @@
   <% if (post.link || post.title){ %>
     <header class="article__header">
       <%- partial('post/title', {class_name: 'article__title'}) %>
-      <%- partial('post/date', {class_name: 'article__date'}) %>
-      <%- partial('post/category') %>
-      <%- partial('post/tag') %>
+      <div class='article__meta'>
+        <%- partial('post/date', {class_name: 'article__date'}) %>
+        <%- partial('post/category') %>
+        <%- partial('post/tag') %>
+      </div>
     </header>
   <% } %>
   <%- partial('post/gallery') %>

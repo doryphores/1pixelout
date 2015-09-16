@@ -1,5 +1,10 @@
 <% if (post.tags && post.tags.length){ %>
-  <%- list_tags(post.tags, {
-    show_count: false
-  }) %>
+  <div class="article__tags">
+    &mdash; Tagged as:
+    <%- list_tags(post.tags, {
+      style: 'p',
+      separator: '',
+      show_count: false
+    }) %>
+  </div>
 <% } %>
