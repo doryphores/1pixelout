@@ -1,8 +1,23 @@
 @import "https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,400italic|Roboto+Mono:400,700,400italic"
 
-color-page    = #F5F2E4
+color-page    = #FFF
 color-text    = #535353
 color-primary = #2B7EC5
+
+mediaqueries = {
+  mobile  : "only screen and (max-width: 600px)",
+  tablet  : "only screen and (min-width: 601px) and (max-width: 800px)"
+  desktop : "only screen and (min-width: 801px)"
+}
+
+for_breakpoint(breakpoints)
+  for breakpoint in breakpoints
+    @media mediaqueries[breakpoint]
+      {block}
+
+.u-mobile-hide
+  +for_breakpoint(mobile)
+    display none
 
 *
   box-sizing border-box
@@ -12,30 +27,8 @@ body
   background-color color-page
 
 a
-  position relative
   color color-primary
-  transition background-color .1s
   text-decoration none
-
-  p &
-    border-bottom 1px dotted color-primary
-
-    &::after
-      content ""
-      position absolute
-      bottom -1px
-      left 50%
-      right 50%
-      height 1px
-      background-color color-primary
-      transition all .2s
-
-    &:hover
-      background-color lighten(color-text, 80%)
-
-      &::after
-        left 0
-        right 0
 
 section
   margin 0 auto

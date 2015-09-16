@@ -4,13 +4,14 @@
       <%- partial('post/title', {class_name: 'article__title'}) %>
       <div class='article__meta'>
         <%- partial('post/date', {class_name: 'article__date'}) %>
+        <%- partial('post/author', {class_name: 'article__author'}) %>
         <%- partial('post/category') %>
         <%- partial('post/tag') %>
       </div>
     </header>
   <% } %>
   <%- partial('post/gallery') %>
-  <div itemprop="articleBody">
+  <div itemprop="articleBody" class="article__body">
     <% if (post.excerpt && index){ %>
       <%- post.excerpt %>
       <% if (theme.excerpt_link){ %>
