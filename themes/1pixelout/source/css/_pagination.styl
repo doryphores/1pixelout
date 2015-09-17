@@ -1,0 +1,38 @@
+.pagination
+  margin-top 80px
+  text-align center
+
+.pagination__link
+  display inline-block
+  padding 0 10px
+  background-color color-primary
+  color color-page
+  // text-transform uppercase
+  font-size 14px
+  font-weight 600
+
+  + .pagination__link
+    margin-left 1px
+
+.pagination__link--prev::before
+  content "❮"
+  margin-right .25em
+  font-size 16px
+  font-weight normal
+  line-height 1
+
+.pagination__link--next::after
+  content "❯"
+  margin-left .25em
+  font-size 16px
+  font-weight normal
+  line-height 1
+
+.pagination__link-title
+  font-weight normal
+
+  &::before
+    content "/ "
+
+  +for_breakpoint(mobile)
+    display none

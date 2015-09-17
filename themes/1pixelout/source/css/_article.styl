@@ -61,8 +61,6 @@
 
 
 .article__tags
-  color lighten(color-text, 50%)
-  text-transform uppercase
   white-space nowrap
 
   &::before
@@ -77,24 +75,7 @@
       display none
 
   a
-    padding 1px 4px
-    color color-primary
-    background lighten(color-text, 80%)
-    border-radius 2px
-    transition all .1s
-
-    &::before
-      content "▶"
-      margin-right .25em
-      font-weight 400
-      font-size 12px
-
-    + a
-      margin-left 1px
-
-    &:hover
-      background-color color-primary
-      color color-page
+    font-weight bold
 
 
 .article__body
@@ -121,3 +102,4 @@
       &::after
         left 0
         right 0
+        height 2px
