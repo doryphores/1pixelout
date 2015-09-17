@@ -1,8 +1,13 @@
 <footer class="site-footer">
-  <% if (theme.sidebar === 'bottom'){ %>
-    <%- partial('_partial/sidebar') %>
-  <% } %>
-  &copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %><br>
-  Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> - 
-  Theme inspired by <a href="http://ghost.jollygoodthemes.com/ghostwriter/" target="_blank">Ghostwriter</a>
+  <span class="site-footer__line">
+    &copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %>
+  </span>
+  <span class="site-footer__line">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    and <a href="https:/github.com/" target="_blank">GitHub</a>
+  </span>
+  <span class="site-footer__line">
+    Theme inspired by <a href="http://ghost.jollygoodthemes.com/ghostwriter/" target="_blank">Ghostwriter</a>
+    from <a href="http://ghost.jollygoodthemes.com/" target="_blank">JollyGoodThemes</a>
+  </span>
 </footer>

@@ -1,6 +1,28 @@
 .site-footer
-  margin 0 auto
-  max-width 800px
-  padding 40px 0
-  color lighten(color-text, 50%)
-  border-top 1px dotted color-text
+  height 200px
+  padding 60px 10px 0
+  font-size 14px
+  text-align center
+  text-transform uppercase
+  background color-text
+  color lighten(color-text, 70%)
+
+  +for_breakpoint(mobile)
+    padding-top 30px
+
+  a
+    color inherit
+    font-weight bold
+
+    &:hover, &:focus
+      color #fff
+
+.site-footer__line
+  + .site-footer__line::before
+    content "/"
+
+  +for_breakpoint(mobile)
+    display block
+
+    &::before
+      display none
