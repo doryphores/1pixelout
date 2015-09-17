@@ -1,30 +1,47 @@
-<% if (pagination == 2){ %>
-  <% page.posts.each(function(post){ %>
-    <%- partial('article', {post: post, index: true}) %>
-  <% }) %>
-  <% if (page.total > 1){ %>
-    <nav>
-      <%- paginator({
-        prev_text: '&laquo; Prev',
-        next_text: 'Next &raquo;'
-      }) %>
-    </nav>
-  <% } %>
-<% } else { %>
-  <% var last; %>
+<%
+function link(i) {
+  return url_for(i === 1 ? page.base : page.base + (config.pagination_dir + '/%d/').replace('%d', i))
+}
+
+var title = page.title;
+
+if (is_archive()){
+  title = 'Archives';
+
+  if (is_month()){
+    title += ': ' + page.year + '/' + page.month;
+  } else if (is_year()){
+    title += ': ' + page.year;
+  }
+} else if (is_category()){
+  title = 'Category: ' + page.category;
+} else if (is_tag()){
+  title = 'Tag: ' + page.tag;
+}
+%>
+
+<header class="article__header">
+  <h1 class="article__title"><%- title %></h1>
+</header>
+
+<ul class="archive-list">
   <% page.posts.each(function(post, i){ %>
-    <% var year = post.date.year(); %>
-    <% if (last != year){ %>
-      <% if (last != null){ %>
-        </section>
-      <% } %>
-      <% last = year; %>
-      <section>
-        <a href="<%- url_for('archives/' + year) %>"><%= year %></a>
-    <% } %>
-    <%- partial('archive-post', {post: post, even: i % 2 == 0}) %>
+    <li>
+      <a class="archive-list__item" href="<%- url_for(post.path) %>">
+        <h2 class="archive-list__title"><%= post.title %></h2>
+        <%- partial('post/date', {post: post, class_name: 'archive-list__date', date_format: null}) %>
+      </a>
+    </li>
   <% }) %>
-  <% if (page.posts.length){ %>
-    </section>
-  <% } %>
+</ul>
+
+<% if (page.total > 1){ %>
+  <nav class="pagination">
+    <% if (page.current != 1) { %>
+      <a href="<%- link(page.current - 1) %>" class="pagination__link pagination__link--prev">Newer posts</a>
+    <% } %>
+    <% if (page.current != page.total) { %>
+      <a href="<%- link(page.current + 1) %>" class="pagination__link pagination__link--next">Older posts</a>
+    <% } %>
+  </nav>
 <% } %>

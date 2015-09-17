@@ -1,27 +1,17 @@
 <article itemscope itemprop="blogPost" class="article">
   <% if (post.link || post.title){ %>
     <header class="article__header">
-      <%- partial('post/title', {class_name: 'article__title'}) %>
+      <%- partial('post/title') %>
       <div class='article__meta'>
-        <%- partial('post/date', {class_name: 'article__date'}) %>
+        <%- partial('post/date', {class_name: 'article__date', date_format: null}) %>
         <%- partial('post/author', {class_name: 'article__author'}) %>
         <%- partial('post/category') %>
         <%- partial('post/tag') %>
       </div>
     </header>
   <% } %>
-  <%- partial('post/gallery') %>
   <div itemprop="articleBody" class="article__body">
-    <% if (post.excerpt && index){ %>
-      <%- post.excerpt %>
-      <% if (theme.excerpt_link){ %>
-        <p>
-          <a href="<%- url_for(post.path) %>#more"><%= theme.excerpt_link %></a>
-        </p>
-      <% } %>
-    <% } else { %>
-      <%- post.content %>
-    <% } %>
+    <%- post.content %>
   </div>
   <% if (post.comments && config.disqus_shortname){ %>
   <footer>
