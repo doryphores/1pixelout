@@ -5,9 +5,12 @@ header.site-header
   else
     .site-header__title
       a(href=url_for())= config.title
-  nav.site-header__nav
-    each url, label in theme.menu
-      a(href=url_for(url))= label
-  nav.site-header__tools
-    if theme.rss
-      a(href=theme.rss title="RSS Feed") RSS Feed
+  nav.site-nav
+    a.site-nav__link(href=url_for("/") class=is_home() ? "site-nav__link--current" : null)
+      | Latest post
+    a.site-nav__link(href=url_for("archives") class=is_archive() ? "site-nav__link--current" : null)
+      | Browse posts
+    a.site-nav__link(href=url_for("about") class=is_current("about") ? "site-nav__link--current" : null)
+      | About
+    a.site-nav__link(href=url_for("atom.xml") title="RSS Feed")
+      | RSS Feed

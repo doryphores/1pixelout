@@ -2,10 +2,11 @@ article.article(itemscope itemprop="blogPost")
   if post.link || post.title
     header.o-page-header
       != partial("post/title")
-      .article__meta
-        != partial("post/date", {class_name: "article__date", date_format: null})
-        != partial("post/author", {class_name: "article__author"})
-        != partial("post/tag")
+      if is_post() || is_home()
+        .article__meta
+          != partial("post/date", {class_name: "article__date", date_format: null})
+          != partial("post/author", {class_name: "article__author"})
+          != partial("post/tag")
   .article__body(itemprop="articleBody")
     != post.content
   unless index
