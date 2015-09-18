@@ -24,7 +24,8 @@ hexo.extend.helper.register("page_title", function (options) {
     title = "Archives"
 
     if (this.is_month()) {
-      title += ": " + this.page.year + "/" + this.page.month
+      var d = new Date(this.page.year, this.page.month - 1)
+      title += ": " + this.date(d, "MMMM YYYY")
     } else if (this.is_year()) {
       title += ": " + this.page.year
     }
