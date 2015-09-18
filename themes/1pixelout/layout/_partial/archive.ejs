@@ -2,16 +2,16 @@
   <h1 class="o-page-header__title"><%- page_title() %></h1>
 </header>
 
-<ul class="archive-list">
+<ol class="o-page-list">
   <% page.posts.each(function(post, i){ %>
     <li>
-      <a class="archive-list__item" href="<%- url_for(post.path) %>">
-        <h2 class="archive-list__title"><%= post.title %></h2>
-        <%- partial('post/date', {post: post, class_name: 'archive-list__date', date_format: null}) %>
+      <a class="o-page-list__page" href="<%- url_for(post.path) %>">
+        <h2 class="o-page-list__page-title"><%= post.title %></h2>
+        <%- partial('post/date', {post: post, class_name: 'o-page-list__page-date'}) %>
       </a>
     </li>
   <% }) %>
-</ul>
+</ol>
 
 <% if (page.total > 1){ %>
   <nav class="o-pagination">
