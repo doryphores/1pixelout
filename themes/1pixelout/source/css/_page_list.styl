@@ -3,11 +3,17 @@
   margin 0
   padding 0
 
+  +for_breakpoint(mobile)
+    margin 0 -10px
+
 .o-page-list__page
   display block
   padding 20px 0
   border-bottom 1px dotted color-text
   transition all .2s
+
+  +for_breakpoint(mobile)
+    padding 20px 10px
 
   &:hover, &:focus
     background-color lighten(color-primary, 95%)

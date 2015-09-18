@@ -2,6 +2,9 @@
   padding 80px 40px 20px
   text-align center
 
+  +for_breakpoint(mobile)
+    padding-bottom 0
+
 .site-header__title
   position relative
   display inline-block
@@ -40,7 +43,7 @@
 
   &:hover, &:focus
     background-color darken(color-primary, 10%)
-    
+
     &::before
       left 0
       width 100%
