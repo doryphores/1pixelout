@@ -7,12 +7,14 @@
   padding 0 10px
   background-color color-primary
   color color-page
-  // text-transform uppercase
   font-size 14px
   font-weight 600
 
   + .pagination__link
     margin-left 1px
+
+  &:hover, &:focus
+    background-color darken(color-primary, 20%)
 
 .pagination__link--prev::before
   content "❮"
