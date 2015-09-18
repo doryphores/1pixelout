@@ -4,7 +4,9 @@ date: 2015-09-14 21:29:06
 tags: atom
 ---
 
-I really can't do with an editor that clears my clipboard when I accidently copy an empty line. This is an easy mistake to make:
+I really can't do with an editor that clears my clipboard when I accidently copy an empty line.
+
+This is an easy mistake to make:
 
 - cut something with `Cmd+X`
 - move the cursor to an empty line where I want to paste

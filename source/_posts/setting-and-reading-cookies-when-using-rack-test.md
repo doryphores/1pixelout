@@ -34,4 +34,4 @@ cookie = cookies_from_response["cookie_name"]
 expect(cookie.expires).to be_within(5.minutes).of(30.days.from_now)
 ```
 
-The `be_within` matcher is perfect her because we cannot check the exact expiry date.
+The `be_within` matcher is perfect here because we cannot check the exact expiry date.
