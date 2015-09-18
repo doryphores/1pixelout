@@ -1,12 +1,12 @@
 <% if (post.prev || post.next){ %>
-<nav class="pagination">
+<nav class="o-pagination">
   <% if (post.prev){ %>
-    <a href="<%- url_for(post.prev.path) %>" class="pagination__link pagination__link--prev">
+    <a href="<%- url_for(post.prev.path) %>" class="o-pagination__link  o-pagination__link--prev">
       Newer
-      <span class="pagination__link-title"><%= post.prev.title %></span>
-    </a><% } if (post.next){ %><a href="<%- url_for(post.next.path) %>" class="pagination__link pagination__link--next">
+      <span class="o-pagination__link-title"><%= post.prev.title %></span>
+    </a><% } if (post.next){ %><a href="<%- url_for(post.next.path) %>" class="o-pagination__link  o-pagination__link--next">
       Older
-      <span class="pagination__link-title"><%= post.next.title %></span>
+      <span class="o-pagination__link-title"><%= post.next.title %></span>
     </a>
   <% } %>
 </nav>

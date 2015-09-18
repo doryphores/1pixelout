@@ -14,12 +14,12 @@
 </ul>
 
 <% if (page.total > 1){ %>
-  <nav class="pagination">
+  <nav class="o-pagination">
     <% if (page.current != 1) { %>
-      <a href="<%- prev_page_link() %>" class="pagination__link pagination__link--prev">Newer posts</a>
+      <a href="<%- prev_page_link() %>" class="o-pagination__link  o-pagination__link--prev">Newer posts</a>
     <% } %>
     <% if (page.current != page.total) { %>
-      <a href="<%- next_page_link() %>" class="pagination__link pagination__link--next">Older posts</a>
+      <a href="<%- next_page_link() %>" class="o-pagination__link  o-pagination__link--next">Older posts</a>
     <% } %>
   </nav>
 <% } %>

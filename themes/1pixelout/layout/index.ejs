@@ -1,7 +1,7 @@
 <%- partial('_partial/article', {post: page.posts.first(), index: true}) %>
 
 <% if (page.posts.length > 1) { %>
-<nav class="pagination">
-  <a href="<%- url_for('archives') %>" class="pagination__link">Browse posts</a>
+<nav class="o-pagination">
+  <a href="<%- url_for('archives') %>" class="o-pagination__link">Browse posts</a>
 </nav>
 <% } %>
