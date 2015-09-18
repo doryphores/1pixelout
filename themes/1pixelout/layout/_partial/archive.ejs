@@ -1,27 +1,5 @@
-<%
-function link(i) {
-  return url_for(i === 1 ? page.base : page.base + (config.pagination_dir + '/%d/').replace('%d', i))
-}
-
-var title = page.title;
-
-if (is_archive()){
-  title = 'Archives';
-
-  if (is_month()){
-    title += ': ' + page.year + '/' + page.month;
-  } else if (is_year()){
-    title += ': ' + page.year;
-  }
-} else if (is_category()){
-  title = 'Category: ' + page.category;
-} else if (is_tag()){
-  title = 'Tag: ' + page.tag;
-}
-%>
-
 <header class="article__header">
-  <h1 class="article__title"><%- title %></h1>
+  <h1 class="article__title"><%- page_title() %></h1>
 </header>
 
 <ul class="archive-list">
@@ -38,10 +16,10 @@ if (is_archive()){
 <% if (page.total > 1){ %>
   <nav class="pagination">
     <% if (page.current != 1) { %>
-      <a href="<%- link(page.current - 1) %>" class="pagination__link pagination__link--prev">Newer posts</a>
+      <a href="<%- prev_page_link() %>" class="pagination__link pagination__link--prev">Newer posts</a>
     <% } %>
     <% if (page.current != page.total) { %>
-      <a href="<%- link(page.current + 1) %>" class="pagination__link pagination__link--next">Older posts</a>
+      <a href="<%- next_page_link() %>" class="pagination__link pagination__link--next">Older posts</a>
     <% } %>
   </nav>
 <% } %>
