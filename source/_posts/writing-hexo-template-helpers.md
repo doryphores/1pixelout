@@ -1,7 +1,6 @@
 ---
 title: Writing hexo template helpers
-tags:
-  - hexo
+tags: hexo
 date: 2015-09-18 14:31:32
 ---
 
@@ -51,7 +50,7 @@ hexo.extend.helper.register("page_title", function () {
   } else if (this.is_tag()) {
     title = "Tag: " + this.page.tag;
   }
-  
+
   return title;
 });
 ```
