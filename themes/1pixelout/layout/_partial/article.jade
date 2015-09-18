@@ -1,0 +1,17 @@
+article.article(itemscope itemprop="blogPost")
+  if post.link || post.title
+    header.o-page-header
+      != partial("post/title")
+      .article__meta
+        != partial("post/date", {class_name: "article__date", date_format: null})
+        != partial("post/author", {class_name: "article__author"})
+        != partial("post/tag")
+  .article__body(itemprop="articleBody")
+    != post.content
+  unless index
+    != partial("post/nav")
+
+if !index && post.comments && config.disqus_shortname
+  section#disqus-thread: div: noscript
+    | Please enable JavaScript to view the
+    | <a href="//disqus.com/?ref_noscript">comments powered by Disqus</a>.

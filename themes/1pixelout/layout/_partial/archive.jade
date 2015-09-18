@@ -1,0 +1,16 @@
+header.o-page-header
+  h1.o-page-header__title= page_title()
+
+ol.o-page-list
+  - each post in page.posts.toArray()
+    li
+      a.o-page-list__page(href=url_for(post.path))
+        h2.o-page-list__page-title= post.title
+        != partial("post/date", {post: post, class_name: "o-page-list__page-date"})
+
+if page.total > 1
+  nav.o-pagination
+    if page.current != 1
+      a.o-pagination__link.o-pagination__link--prev(href=prev_page_link()) Newer posts
+    if page.current != page.total
+      a.o-pagination__link.o-pagination__link--next(href=next_page_link()) Older posts

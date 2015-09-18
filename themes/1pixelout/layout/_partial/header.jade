@@ -1,0 +1,13 @@
+header.site-header
+  if is_home()
+    h1.site-header__title
+      a(href=url_for())= config.title
+  else
+    .site-header__title
+      a(href=url_for())= config.title
+  nav.site-header__nav
+    each url, label in theme.menu
+      a(href=url_for(url))= label
+  nav.site-header__tools
+    if theme.rss
+      a(href=theme.rss title="RSS Feed") RSS Feed

@@ -1,0 +1,5 @@
+!= partial("_partial/article", {post: page.posts.first(), index: true})
+
+if page.posts.length > 1
+  nav.o-pagination
+    a.o-pagination__link(href=url_for("archives")) Browse posts
