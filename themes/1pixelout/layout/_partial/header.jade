@@ -6,11 +6,11 @@ header.site-header
     .site-header__title
       a(href=url_for())= config.title
   nav.site-nav
-    a.site-nav__link(href=url_for("/") class=is_home() ? "site-nav__link--current" : null)
+    a.site-nav__link(href=url_for("/") class=class_if("site-nav__link--current", is_home()))
       | Latest post
-    a.site-nav__link(href=url_for("archives") class=is_archive() ? "site-nav__link--current" : null)
+    a.site-nav__link(href=url_for("/archives") class=class_if("site-nav__link--current", is_archive()))
       | Browse posts
-    a.site-nav__link(href=url_for("about") class=is_current("about") ? "site-nav__link--current" : null)
+    a.site-nav__link(href=url_for("/about") class=class_if("site-nav__link--current", is_current("about")))
       | About
     a.site-nav__link(href=url_for("atom.xml") title="RSS Feed")
       | RSS Feed

@@ -11,6 +11,6 @@ html
 
   body
     .site-wrapper
-      != partial("_partial/header", null, {cache: !config.relative_link})
+      != partial("_partial/header")
       section!= body
-    != partial("_partial/footer", null, {cache: !config.relative_link})
+    != partial("_partial/footer")

@@ -45,3 +45,7 @@ hexo.extend.helper.register("page_title", function (options) {
 
   return title
 })
+
+hexo.extend.helper.register("class_if", function (class_name, condition) {
+  return condition ? class_name : null
+})
