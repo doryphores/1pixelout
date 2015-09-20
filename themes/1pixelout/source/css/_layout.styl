@@ -14,7 +14,7 @@ a
 
 .site-wrapper
   min-height 100%
-  margin-bottom -200px
+  margin-bottom -(footer-height)
   padding-bottom 80px
 
   +for_breakpoint(mobile)
@@ -23,7 +23,7 @@ a
   &::after
     content ""
     display block
-    height 200px
+    height footer-height
 
 section
   margin 0 auto

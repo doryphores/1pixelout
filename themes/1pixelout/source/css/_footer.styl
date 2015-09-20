@@ -1,7 +1,8 @@
-.site-footer
-  height 200px
+.c-site-footer
+  height footer-height
   padding 60px 10px 0
   font-size 14px
+  line-height 22px
   text-align center
   text-transform uppercase
   background color-text
@@ -15,14 +16,17 @@
     font-weight bold
 
     &:hover, &:focus
-      color #fff
+      color white
 
-.site-footer__line
-  + .site-footer__line::before
-    content " / "
+  p
+    display inline
+    margin 0
 
-  +for_breakpoint(mobile)
-    display block
+    + p::before
+      content " / "
 
-    &::before
-      display none
+    +for_breakpoint(mobile)
+      display block
+
+      &::before
+        display none
