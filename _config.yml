@@ -70,6 +70,12 @@ feed:
   path: atom.xml
   limit: 20
 
+jade:
+  pretty: true
+
+stylus:
+  compress: true
+
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
