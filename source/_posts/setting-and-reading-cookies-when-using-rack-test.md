@@ -1,5 +1,6 @@
 ---
 title: 'Setting and reading cookies when using Rack::Test'
+excerpt: How to set and read cookies when writing specs and features with Rack::Test
 tags: ruby
 date: 2015-09-16 11:25:10
 ---

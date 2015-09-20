@@ -1,6 +1,7 @@
 ---
 title: Prevent copying empty selections in Atom
 date: 2015-09-14 21:29:06
+excerpt: How to prevent copying an empty selection in Atom
 tags: atom
 ---
 

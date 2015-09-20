@@ -1,9 +1,9 @@
 ---
 title: Writing hexo template helpers
+excerpt: How to define and include helpers with your Hexo theme
 tags: hexo
 date: 2015-09-18 14:31:32
 ---
-
 
 Instead of including JavaScript in your hexo layout templates, it's better to move it to a collection of helpers that you can define in your theme's scripts.
 
