@@ -6,7 +6,8 @@ ol.o-page-list
     li
       a.o-page-list__item(href=url_for(post.path))
         h2.o-page-list__item-title= post.title
-        != partial("post/date", {post: post, class_name: "o-page-list__item-date"})
+        span.o-page-list__item-date
+          != partial("post/date", {post: post})
 
 if page.total > 1
   nav.o-pagination

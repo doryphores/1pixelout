@@ -1,4 +1,0 @@
-if post.tags && post.tags.length
-  span.article__tags
-    | Tagged as:&nbsp;
-    != list_tags(post.tags, {style: 'p', separator: ' / ', show_count: false})

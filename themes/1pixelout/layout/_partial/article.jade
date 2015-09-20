@@ -1,16 +1,23 @@
-article.article(itemscope=true itemprop="blogPost")
+article.article&attributes(schema || {})
   if post.link || post.title
     header.o-page-header
       != partial("post/title")
       if is_post() || is_home()
         .article__meta
-          != partial("post/date", {class_name: "article__date", date_format: null})
-          != partial("post/author", {class_name: "article__author"})
-          != partial("post/tag")
+          span.article__date!= partial("post/date")
+          span.article__author
+            | By <strong itemprop="author">#{config.author}</strong>
+          if post.tags && post.tags.length
+            span.o-tag-list
+              | Tagged as:&nbsp;
+              for tag in post.tags.toArray()
+                a.o-tag-list__item(href=url_for(tag.path)) #{tag.name}
+
   .article__body(itemprop="articleBody")
     != post.content
-  unless index
-    != partial("post/nav")
+
+unless index
+  != partial("post/nav")
 
 if !index && post.comments && config.disqus_shortname
   section#disqus-thread: div: noscript
