@@ -4,9 +4,9 @@ header.o-page-header
 ol.o-page-list
   - each post in page.posts.toArray()
     li
-      a.o-page-list__page(href=url_for(post.path))
-        h2.o-page-list__page-title= post.title
-        != partial("post/date", {post: post, class_name: "o-page-list__page-date"})
+      a.o-page-list__item(href=url_for(post.path))
+        h2.o-page-list__item-title= post.title
+        != partial("post/date", {post: post, class_name: "o-page-list__item-date"})
 
 if page.total > 1
   nav.o-pagination

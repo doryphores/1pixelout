@@ -1,56 +1,13 @@
 @import "https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,400italic|Roboto+Mono:400,700,400italic"
 
-color-page    = #FFF
-color-text    = #535353
-color-primary = #2B7EC5
+color-page          = #FFF
+color-text          = #535353
+color-primary       = #2B7EC5
+color-primary-hover = darken(color-primary, 10%)
 
-mediaqueries = {
-  mobile  : "only screen and (max-width: 600px)",
-  tablet  : "only screen and (min-width: 601px) and (max-width: 800px)"
-  desktop : "only screen and (min-width: 801px)"
-}
-
-for_breakpoint(breakpoints)
-  for breakpoint in breakpoints
-    @media mediaqueries[breakpoint]
-      {block}
-
-.u-mobile-hide
-  +for_breakpoint(mobile)
-    display none
-
-*
-  box-sizing border-box
-
-html, body
-  height 100%
-
-body
-  margin 0
-  background-color color-page
-
-a
-  color color-primary
-  text-decoration none
-
-.site-wrapper
-  min-height 100%
-  margin-bottom -200px
-  padding-bottom 80px
-
-  +for_breakpoint(mobile)
-    padding-bottom 20px
-
-  &::after
-    content ""
-    display block
-    height 200px
-
-section
-  margin 0 auto
-  padding 40px 10px
-  max-width 800px
-
+@import "_helpers"
+@import "_layout"
+@import "_octicons"
 @import "_typography"
 @import "_header"
 @import "_footer"

@@ -1,0 +1,27 @@
+mediaqueries = {
+  mobile  : "only screen and (max-width: 600px)",
+  tablet  : "only screen and (min-width: 601px) and (max-width: 800px)"
+  desktop : "only screen and (min-width: 801px)"
+}
+
+for_breakpoint(breakpoints)
+  for breakpoint in breakpoints
+    @media mediaqueries[breakpoint]
+      {block}
+
+// Generate hide classes for each breakpoint
+for breakpoint, _query in mediaqueries
+  .u-{breakpoint}-hide
+    +for_breakpoint(breakpoint)
+      display none
+
+
+.u-list--horizontal
+  list-style none
+  margin 0
+  padding 0
+
+  li
+    margin 0
+    padding 0
+    display inline-block

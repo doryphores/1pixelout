@@ -1,13 +1,19 @@
-.site-header
+// The site header is positioned at the top of each page and contains:
+// - The site's logo/brand
+// - A link to the RSS feed
+// - The site's main navigation
+
+.c-site-header
   padding 60px 10px 0
   text-align center
 
   +for_breakpoint(mobile)
-    padding-top 40px
-    padding-bottom 0
+    padding 40px 0 0
 
-.site-header__title
-  position relative
+
+// The title/branding element is a simple boxed title
+
+.c-site-header__branding
   display inline-block
   margin 0
   font-weight bold
@@ -15,94 +21,94 @@
   line-height 32px
   text-transform uppercase
   letter-spacing 2px
+  vertical-align middle
   background-color color-primary
-  transition all
+  transition background-color
 
   a
     display block
     padding 0 10px
-
-  &::before
-  &::after
-    content ""
-    position absolute
-    z-index 1
-    background-color inherit
-    transition all .2s
-
-  &::before
-    width 20%
-    top -1px
-    bottom 0
-    left 2px
-
-  &::after
-    top 5px
-    bottom 2px
-    left 0
-    right -1px
-
-  &:hover, &:focus
-    background-color darken(color-primary, 10%)
-
-    &::before
-      left 0
-      bottom -1px
-      width 100%
-
-    &::after
-      top 0
-      bottom 0
-      left -1px
-
-  a
-    position relative
-    z-index 2
     color white
     text-decoration none
 
-.site-nav
+  &:hover, &:focus
+    background-color color-primary-hover
+
+
+// The header RSS link is an icon positioned to the right of the title
+
+.c-site-header__rss-link
+  display inline-block
+  width 32px
+  height 32px
+  margin-left 2px
+  background-color color-primary
+  color white
+  line-height 32px
+  vertical-align middle
+  transition background-color .2s
+
+  &:hover, &:focus
+    background-color color-primary-hover
+
+  .octicon
+    line-height 32px
+    vertical-align top
+    font-size 20px
+
+
+// Site navigation items have 3 states:
+// - default state
+// - hover/focus state with an animated background and underline
+// - current state with a small centered arrow pointing downward to the page
+
+.c-site-nav
   margin-top 40px
   font-size 16px
   font-weight bold
   text-transform uppercase
 
-.site-nav__link
+.c-site-nav__item
   position relative
   text-decoration none
-  transition background-color .1s
 
-  &::after
+  + .c-site-nav__item
+    margin-left 20px
+
+    +for_breakpoint(mobile)
+      margin-left 10px
+
+  // Position links so they show on top of pseudo elements
+  a
+    display block
+    position relative
+
+  // The initial state of the underline pseudo-element
+  &::before
     content ""
     position absolute
-    bottom -1px
+    bottom 0
     left 50%
     right 50%
     height 1px
     background-color color-primary
-    transition all .2s
+    transition all .1s
 
   &:hover, &:focus
-    background-color lighten(color-text, 95%)
-
-    &::after
+    &::before
       left 0
       right 0
       height 2px
 
-.site-nav__link + .site-nav__link
-  margin-left 20px
-
-  +for_breakpoint(mobile)
-    margin-left 10px
-
-.site-nav__link--current
-  &::after
+.c-site-nav__item--current
+  // Show the underline
+  &::before
     left 0
     right 0
     height 2px
 
-  &::before
+  // Arrow pseudo-element
+  &::after
     content ""
     position absolute
     bottom -8px

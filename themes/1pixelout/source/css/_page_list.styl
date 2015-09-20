@@ -6,7 +6,7 @@
   +for_breakpoint(mobile)
     margin 0 -10px
 
-.o-page-list__page
+.o-page-list__item
   display block
   padding 20px 0
   border-bottom 1px dotted color-text
@@ -14,6 +14,7 @@
 
   +for_breakpoint(mobile)
     padding 20px 10px
+    transition-property background-color
 
   &:hover, &:focus
     background-color lighten(color-primary, 95%)
@@ -21,11 +22,11 @@
     +for_breakpoint(desktop)
       padding 20px 10px
 
-.o-page-list__page-title
+.o-page-list__item-title
   display inline
   font-size inherit
   font-weight bold
 
-.o-page-list__page-date
+.o-page-list__item-date
   &:before
     content " / "
