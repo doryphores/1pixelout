@@ -24,7 +24,18 @@ article.article&attributes(schema || {})
 unless index
   != partial("post/nav")
 
-if !index && post.comments && config.disqus_shortname
-  section#disqus-thread: div: noscript
+if is_post()
+  div.o-comment-thread#disqus_thread: noscript
     | Please enable JavaScript to view the
     | <a href="//disqus.com/?ref_noscript">comments powered by Disqus</a>.
+
+  script.
+    var disqus_shortname = "1pixelout";
+    var disqus_title = !{JSON.stringify(post.title)};
+    var disqus_url = "#{post.permalink}";
+    
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
