@@ -49,3 +49,10 @@ hexo.extend.helper.register("page_title", function (options) {
 hexo.extend.helper.register("class_if", function (class_name, condition) {
   return condition ? class_name : null
 })
+
+hexo.extend.helper.register("twitter_share_url", function (post) {
+  var url = "http://twitter.com/share?text="
+  url += encodeURIComponent(post.title)
+  url += "&url=" + encodeURIComponent(post.permalink)
+  return url
+})

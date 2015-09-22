@@ -6,7 +6,7 @@ header.c-site-header
     .c-site-header__branding
       a(href=url_for())= config.title
   a.c-site-header__rss-link(href=url_for("atom.xml") title="RSS Feed")
-    i.octicon.octicon-rss
+    i.icon-rss
   nav.c-site-nav: ul.u-list--horizontal
     li.c-site-nav__item(class=class_if("c-site-nav__item--current", is_home()))
       a(href=url_for("/")) Latest post
