@@ -74,6 +74,7 @@ feed:
   limit: 20
 
 jade:
+  doctype: html
   pretty: true
 
 stylus:
