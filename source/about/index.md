@@ -11,4 +11,9 @@ I'm currently working for [Simply Business](http://www.simplybusiness.co.uk/), a
 
 **1 Pixel Out** is built on [Hexo](https://hexo.io/), an open source static site generator and is hosted on [GitHub Pages](https://pages.github.com/). The CSS is written with [Stylus](https://learnboost.github.io/stylus/) and the theme templates with the [Jade](http://jade-lang.com/) templating engine.
 
-The theme design is inspired by the excellent [Ghostwriter](http://ghost.jollygoodthemes.com/ghostwriter/) theme by [JollyGoodThemes](http://ghost.jollygoodthemes.com/) for the Ghost blogging platform.
+The theme design is inspired by the excellent [Ghostwriter](http://ghost.jollygoodthemes.com/ghostwriter/) theme by [JollyGoodThemes](http://ghost.jollygoodthemes.com/).
+
+### Fonts
+
+- [Open Sans](https://www.google.com/fonts/specimen/Open+Sans)
+- [Source Code Pro](https://www.google.com/fonts/specimen/Source+Code+Pro) for code snippets. I highly recommend this font for monospaced uses.
