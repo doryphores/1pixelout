@@ -1,5 +1,16 @@
 if post.prev || post.next
   nav.o-pagination
+    .o-pagination__social
+      a.o-pagination__link(href=twitter_share_url(post) onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;" title="Post to Twitter")
+        i.o-pagination__link-icon.icon-twitter
+        span.u-mobile-hide Post to Twitter
+
+      a#js-toggle-comments.o-pagination__link(href="#disqus_thread")
+        i.o-pagination__link-icon.icon-comments
+        span.u-mobile-hide
+          | Comments
+          span.o-pagination__link-count.disqus-comment-count(data-disqus-url=post.permalink)
+
     if post.prev
       a.o-pagination__link.o-pagination__link--prev(href=url_for(post.prev.path))
         i.o-pagination__link-icon.icon-left
@@ -9,4 +20,4 @@ if post.prev || post.next
       a.o-pagination__link.o-pagination__link--next(href=url_for(post.next.path))
         span.o-pagination__link-label Older
         i.o-pagination__link-icon.icon-right
-        span.o-pagination__link-title= post.prev.title
+        span.o-pagination__link-title= post.next.title

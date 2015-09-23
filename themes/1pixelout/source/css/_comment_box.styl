@@ -1,0 +1,20 @@
+.o-comment-box
+  overflow hidden
+  min-height 0
+  margin-top 60px
+  background-color lighten(color-text, 95%)
+  outline none
+  transition min-height .2s
+
+  +for_breakpoint(mobile)
+    margin 40px -10px 0
+
+.o-comment-box__thread
+  display none
+  padding 10px
+
+.o-comment-box--is-open
+  min-height 160px
+
+  .o-comment-box__thread
+    display block

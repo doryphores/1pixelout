@@ -90,38 +90,3 @@
         left 0
         right 0
         height 2px
-
-
-.article__sharing
-  position absolute
-  right 0
-  bottom 1px
-  text-transform uppercase
-  font-size 14px
-
-  +for_breakpoint(mobile)
-    right 50%
-    margin-right -16px
-
-  a
-    display inline-block
-    height 32px
-    line-height 32px
-    text-align center
-    background-color lighten(color-text, 90%)
-    transition background-color .2s
-
-    span
-      padding 0 10px
-      vertical-align top
-
-    i
-      display inline-block
-      width 32px
-      height 32px
-      line-height 32px
-      border-left 1px dotted white
-
-    &:hover, &:focus
-      background-color color-primary-hover
-      color white

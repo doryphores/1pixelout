@@ -1,5 +1,8 @@
 .o-pagination
   margin-top 80px
+  font-size 14px
+  line-height 30px
+  font-weight 600
   text-align center
 
   +for_breakpoint(mobile)
@@ -12,9 +15,6 @@
   background-color color-primary
   border-color color-primary
   color color-page
-  font-size 14px
-  line-height 30px
-  font-weight 600
   transition all .2s
 
   + .o-pagination__link
@@ -33,13 +33,12 @@
 
 .o-pagination__link-icon
   display inline-block
+  padding-right 5px
   line-height inherit
   vertical-align top
 
-  .o-pagination__link--prev &
-    padding-right 5px
-
   .o-pagination__link--next &
+    padding-right 0
     padding-left 5px
 
 .o-pagination__link-title
@@ -68,3 +67,26 @@
     border-top-color inherit
     border-style solid
     border-width 8px 8px 0
+
+.o-pagination__social
+  display inline-block
+
+  &::after
+    content "◈"
+    margin 0 .5em
+    font-weight normal
+
+  &:last-child::after
+    display none
+
+  +for_breakpoint(mobile)
+    .o-pagination__link-icon
+      padding 0
+
+
+.o-pagination__link-count
+  margin-left .25em
+  padding 0 4px
+  background-color lighten(color-primary, 80%)
+  color color-primary
+  border-radius 4px

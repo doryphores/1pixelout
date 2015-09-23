@@ -13,11 +13,6 @@ article.article&attributes(schema || {})
               for tag in post.tags.toArray()
                 a.o-tag-list__item(href=url_for(tag.path)) #{tag.name}
                 
-        .article__sharing
-          a(href=twitter_share_url(post) onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;" title="Post to Twitter")
-            span.u-mobile-hide Share on Twitter
-            i.icon-twitter
-                
   .article__body(itemprop="articleBody")
     != post.content
 
@@ -25,7 +20,7 @@ unless index
   != partial("post/nav")
 
 if is_post()
-  div.o-comment-thread#disqus_thread: noscript
+  #js-comment-box.o-comment-box(tabindex="-1"): #disqus_thread.o-comment-box__thread: noscript
     | Please enable JavaScript to view the
     | <a href="//disqus.com/?ref_noscript">comments powered by Disqus</a>.
 
@@ -33,9 +28,3 @@ if is_post()
     var disqus_shortname = "1pixelout";
     var disqus_title = !{JSON.stringify(post.title)};
     var disqus_url = "#{post.permalink}";
-    
-    (function() {
-     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
