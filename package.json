@@ -1,11 +1,16 @@
 {
-  "name": "doryphores.github.io",
+  "name": "1pixelout",
   "version": "0.0.1",
   "private": true,
+  "scripts": {
+    "test": "cucumberjs"
+  },
   "hexo": {
     "version": "3.1.1"
   },
   "dependencies": {
+    "cucumber": "^0.6.0",
+    "finalhandler": "^0.4.0",
     "hexo": "^3.1.0",
     "hexo-deployer-git": "0.0.4",
     "hexo-front-matter-excerpt": "^0.1.0",
@@ -19,6 +24,8 @@
     "hexo-renderer-jade": "^0.1.0",
     "hexo-renderer-marked": "^0.2.4",
     "hexo-renderer-stylus": "^0.3.0",
-    "hexo-server": "^0.1.2"
+    "hexo-server": "^0.1.2",
+    "serve-static": "^1.10.0",
+    "zombie": "^4.1.0"
   }
 }
