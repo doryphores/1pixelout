@@ -1,32 +1,24 @@
-var Hexo        = require("hexo")
-var http        = require("http")
-var serveStatic = require("serve-static")
-var path        = require("path")
+var Hexo = require("hexo")
 
 module.exports = function () {
   const hexo = new Hexo(process.cwd(), {
     silent: true
   })
 
-  this.Before(function () {
-    var self = this
-
-    return hexo.init().then(function () {
+  this.registerHandler("BeforeFeature", function (event, callback) {
+    hexo.init().then(function () {
       return hexo.call("clean", {})
     }).then(function () {
-      return hexo.call("generate", {})
-    }).then(function () {
       return hexo.call("server", {
-        port: 4040,
-        static: true
-      })
+        port: 4040
+      }).then(callback)
     }).catch(function (err) {
-      console.log(err);
-      return hexo.exit(err)
+      hexo.exit()
+      callback()
     })
   })
 
-  this.After(function (callback) {
+  this.registerHandler("AfterFeature", function (event, callback) {
     hexo.exit().then(callback)
   })
 }
