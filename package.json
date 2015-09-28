@@ -4,14 +4,15 @@
   "private": true,
   "scripts": {
     "start": "hexo server",
-    "test": "cucumberjs",
-    "deploy": "cucumberjs -f progress && hexo deploy --generate"
+    "test": "cucumberjs --compiler coffee:coffee-script/register",
+    "deploy": "cucumberjs -f progress --compiler coffee:coffee-script/register && hexo deploy --generate"
   },
   "hexo": {
     "version": "3.1.1"
   },
   "dependencies": {
     "chai": "^3.3.0",
+    "coffee-script": "^1.10.0",
     "cucumber": "^0.6.0",
     "hexo": "^3.1.0",
     "hexo-deployer-git": "0.0.4",
