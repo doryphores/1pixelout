@@ -1,16 +1,16 @@
-const Browser = require("zombie")
+var Browser = require("zombie");
 
 function World(callback) {
   this.setupBrowser = function (domain, port) {
-    Browser.localhost(domain, 4040)
-    this.browser = new Browser()
-  }
+    Browser.localhost(domain, 4040);
+    this.browser = new Browser();
+  };
 
   this.visit = function (url) {
-    return this.browser.visit(url)
-  }
+    return this.browser.visit(url);
+  };
 
-  callback()
-}
+  callback();
+};
 
-module.exports.World = World
+module.exports.World = World;
