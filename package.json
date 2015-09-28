@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "test": "cucumberjs"
+    "start": "hexo server",
+    "test": "cucumberjs",
+    "deploy": "cucumberjs -f progress && hexo deploy --generate"
   },
   "hexo": {
     "version": "3.1.1"
