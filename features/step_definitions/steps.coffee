@@ -1,10 +1,10 @@
+Browser = require("zombie")
 expect  = require("chai").expect
 
 module.exports = ->
-  @World = require("../support/world").World
-
   @Given /I am on the "(.*?)" website/, (domain, done) ->
-    @setupBrowser(domain)
+    Browser.localhost(domain, @serverPort)
+    @browser = new Browser()
     done()
 
   @When /^I visit "(.*?)"$/, (pageUrl) ->
