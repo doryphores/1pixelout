@@ -2,7 +2,7 @@ Browser = require("zombie")
 expect  = require("chai").expect
 
 module.exports = ->
-  @Given /^I am on the "(.*?)" website^/, (domain) ->
+  @Given /^I am on the "(.*?)" website$/, (domain) ->
     Browser.localhost(domain, @serverPort)
     @browser = new Browser()
 
