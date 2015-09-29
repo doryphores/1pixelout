@@ -1,6 +1,5 @@
-"use strict";
-
 (function () {
+  "use strict";
 
   var commentBox = document.getElementById("js-comment-box");
 
