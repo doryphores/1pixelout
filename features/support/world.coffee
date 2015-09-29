@@ -2,11 +2,9 @@ Browser = require("zombie")
 expect  = require("chai").expect
 
 module.exports.World = (callback) ->
-  @setupBrowser = (domain, port) ->
-    Browser.localhost(domain, 4040)
+  @setupBrowser = (domain) ->
+    Browser.localhost(domain, @serverPort)
     @browser = new Browser()
-
-  @visit = (url) -> @browser.visit(url)
 
   callback()
 

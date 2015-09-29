@@ -1,5 +1,7 @@
 Hexo = require("hexo")
 
+SERVER_PORT = 4040
+
 module.exports = ->
   serverIsReady = false
 
@@ -8,13 +10,15 @@ module.exports = ->
     silent: true
 
   @Before ->
+    @serverPort = SERVER_PORT
+
     # Do nothing if the server is ready
     return Promise.resolve() if serverIsReady
 
     # Initialise hexo, clean generated files and start a local server
     hexo.init()
     .then -> hexo.call("clean", {})
-    .then -> hexo.call("server", { port: 4040 })
+    .then -> hexo.call("server", { port: SERVER_PORT })
     .then -> serverIsReady = true
     .catch (err) ->
       # An error occurred so exit hexo and return a rejection

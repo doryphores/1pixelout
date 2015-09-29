@@ -8,16 +8,16 @@ module.exports = ->
     done()
 
   @When /^I visit "(.*?)"$/, (pageUrl) ->
-    @visit(pageUrl)
+    @browser.visit(pageUrl)
 
   @Given /^I visit the home page$/, ->
-    @visit("/")
+    @browser.visit("/")
 
   @When /^I click the "(.*?)" link$/, (linkID) ->
     @browser.clickLink("Browse posts")
 
   @Then /^I am on the "(.*?)" page$/, (title, done) ->
-    @browser.assert.text("title", new RegExp(title))
+    expect(@browser.text("title")).to.contain(title)
     done()
 
   @Then /^I can see a single article$/, (done) ->
@@ -42,7 +42,7 @@ module.exports = ->
     done()
 
   @Given /^I visit the latest article page$/, () ->
-    @visit("/").then => @browser.clickLink("article h1 a")
+    @browser.visit("/").then => @browser.clickLink("article h1 a")
 
   @Then /^no navigation links are highlighted$/, (done) ->
     expect(@browser.query(".c-site-nav__item--current")).not.to.exist
