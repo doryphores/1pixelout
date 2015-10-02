@@ -1,8 +1,20 @@
 header.o-page-header
   h1.o-page-header__title= page_title()
 
+ul.tag-cloud
+  li.tag-cloud__item(class=class_if("tag-cloud__item--current", is_archive()))
+    a.tag-cloud__link(href=url_for("/archives"))
+      | All
+      span.tag-cloud__count= site.posts.length
+  each tag in site.tags.toArray()
+    if tag.length
+      li.tag-cloud__item(class=class_if("tag-cloud__item--current", is_tag() && tag.name == page.tag))
+        a.tag-cloud__link(href=url_for(tag.path))
+          | #{tag.name}
+          span.tag-cloud__count= tag.length
+
 ol.o-page-list
-  - each post in page.posts.toArray()
+  each post in page.posts.toArray()
     li
       a.o-page-list__item(href=url_for(post.path))
         h2.o-page-list__item-title= post.title
