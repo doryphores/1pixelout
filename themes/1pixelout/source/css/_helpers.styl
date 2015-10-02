@@ -1,20 +1,21 @@
-mediaqueries = {
+media_queries = {
   mobile  : "only screen and (max-width: 600px)",
-  tablet  : "only screen and (min-width: 601px) and (max-width: 800px)"
+  tablet  : "only screen and (min-width: 601px) and (max-width: 800px)",
   desktop : "only screen and (min-width: 801px)"
 }
 
 for_breakpoint(breakpoints)
-  for breakpoint in breakpoints
-    @media mediaqueries[breakpoint]
-      {block}
+  conditions = ()
+  push(conditions, media_queries[breakpoint]) for breakpoint in breakpoints
+  conditions = join(", ", conditions)
+  @media conditions
+    {block}
 
 // Generate hide classes for each breakpoint
-for breakpoint, _query in mediaqueries
+for breakpoint in keys(media_queries)
   .u-{breakpoint}-hide
     +for_breakpoint(breakpoint)
       display none
-
 
 .u-list--horizontal
   list-style none
