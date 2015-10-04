@@ -56,3 +56,13 @@ hexo.extend.helper.register("page_title", function () {
 ```
 
 As you can see, the `page` object as well as all the other standard hexo objects such as `config` and `site` are available through the `this` scope of the helper.
+
+## Using the helper in a template
+
+Now you can use the helper in your template:
+
+```html
+<head>
+  <title><%= page_title() %></title>
+</head>
+```
