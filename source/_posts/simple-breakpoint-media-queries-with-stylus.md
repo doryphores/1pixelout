@@ -7,7 +7,6 @@ tags:
 date: 2015-10-02 14:11:41
 ---
 
-
 One of the first things I do when I start a new CSS project, is define a helper for simplifying media queries. For example, with SASS, I like to be able to do something like this:
 
 ```scss
