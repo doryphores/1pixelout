@@ -12,7 +12,7 @@ This is just a quick overview of how to write functional tests for a Hexo site.
 We will use:
 - [cucumber.js](https://github.com/cucumber/cucumber-js) for running the features
 - [zombie.js](http://zombie.js.org/) as a headless browser
-- [CoffeeScript](coffeescript.org/) to write the step definitions
+- [CoffeeScript](http://coffeescript.org/) to write the step definitions
 
 _**Note**: The latest version of zombie.js only runs on iojs so if you you want to stick to node, pin it to version 3.x._
 
