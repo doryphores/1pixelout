@@ -38,3 +38,9 @@ module.exports = ->
 
   @Then /^no navigation links are highlighted$/, ->
     expect(@browser.query(".c-site-nav__item--current")).not.to.exist
+
+  @Then /^the following meta tags are set:$/, (table) ->
+    for row in table.hashes()
+      selector = "meta"
+      selector = "#{selector}[#{name}='#{value}']" for name, value of row
+      @browser.assert.element(selector)
