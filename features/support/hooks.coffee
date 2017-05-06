@@ -26,5 +26,5 @@ module.exports = ->
       Promise.reject(err)
 
   # Close the hexo local server when everything is done
-  @registerHandler "AfterFeatures", (event, callback) ->
-    hexo.exit().then(callback)
+  @registerHandler "AfterFeatures", (event) ->
+    hexo.exit()

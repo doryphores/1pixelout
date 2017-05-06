@@ -11,23 +11,23 @@ First, install the [Hexo](https://hexo.io) CLI globally:
 Clone this repo and install node modules:
 
 ```
-> npm install
+> yarn install
 ```
 
 ## To run the local server
 
 ```
-> npm start
+> yarn start
 ```
 
 ## To run the functional tests
 
 ```
-> npm test
+> yarn test
 ```
 
 ## To deploy
 
 ```
-> npm run deploy
+> yarn run deploy
 ```
